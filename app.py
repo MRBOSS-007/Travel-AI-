@@ -25,16 +25,16 @@ openai_api_key = (
 )
 
 Google_API = (
-    st.secrets["SERPER_API'"]
-    if "SERPER_API'" in st.secrets
-    else os.getenv("SERPER_API'")
+    st.secrets["SERPER_API"]
+    if "SERPER_API" in st.secrets
+    else os.getenv("SERPER_API")
 )
 
 if not openai_api_key or not Google_API:
     st.error("API keys not found. Please configure secrets.")
     st.stop()
-openai_api_key= os.environ.get('OPENAI_API_KEY')
-Google_API = os.environ.get('SERPER_API')
+# openai_api_key= os.environ.get('OPENAI_API_KEY')
+# Google_API = os.environ.get('SERPER_API')
 
 # ---- CREATE AGENT (ONCE) ----
 agent_executor = create_ticket_agent(
